@@ -1,0 +1,13 @@
+services:
+  build-env:
+    build:
+      context: .
+    container_name: ${CONTAINER_NAME}
+    working_dir: /root/linux
+    volumes:
+      - ${COMPILE_PATH}:/root/linux
+      - ./init.sh:/root/init.sh
+      - ./entry_shell.sh:/root/entry_shell.sh
+    command: /root/init.sh
+    tty: true
+    stdin_open: true
