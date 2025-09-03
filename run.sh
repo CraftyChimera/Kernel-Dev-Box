@@ -5,6 +5,10 @@ source .env
 set +a
 
 case "$1" in
+    clean-image)
+        echo "Cleaning up..."
+        docker rmi ${IMAGE_NAME}
+        ;;
     up)
         echo "Starting container and building..."
         docker compose up --build -d
@@ -18,7 +22,7 @@ case "$1" in
         docker compose down -v
         ;;
     *)
-        echo "Usage: $0 {up|bash|down}"
+        echo "Usage: $0 {up|bash|down|clean-image}"
         exit 1
         ;;
 esac

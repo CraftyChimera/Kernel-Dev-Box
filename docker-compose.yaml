@@ -2,6 +2,7 @@ services:
   build-env:
     build:
       context: .
+    image: ${IMAGE_NAME}
     container_name: ${CONTAINER_NAME}
     working_dir: /root/linux
     volumes:
